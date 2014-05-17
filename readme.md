@@ -30,11 +30,15 @@ All this development must be done at frontend directory when compiled it will ge
 
 
 #### Install nodejs dependencies (once)
+```
 $ npm install
+```
 ####
 
 #### Watch changes and generate concatenated files with grunt
+```
 $ grunt
+```
 ####
 
 The first command will install nodejs dependencies.
