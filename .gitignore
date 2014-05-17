@@ -6,3 +6,10 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
+
+# extro to laravel
+/node_modules
+/public/assets
+*.sublime-project
+*.sublime-workspace
+.sass-cache
