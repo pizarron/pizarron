@@ -8,8 +8,13 @@ composer.lock
 Thumbs.db
 
 # extro to laravel
+
+# it will not include css nor js, because they are generated from files
+# in frontend/css and frontend/js
+/public/assets/css
+/public/assets/js
+
 /node_modules
-/public/assets
 *.sublime-project
 *.sublime-workspace
 .sass-cache
