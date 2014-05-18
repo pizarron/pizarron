@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Cleans everything on public assets folder
     clean: {
-      main: ['./public/assets'],
+      main: ['./public/assets/js', './public/assets/css'],
       css: ['./public/assets/css/main.css', './public/assets/css/vendors.css']
     },
     /**
