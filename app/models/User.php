@@ -4,7 +4,8 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
-
+	public static $ROLE_COMMON = 'Profile.CommonRole';
+	public static $ROLE_ADMIN = 'Profile.AdminRole';
 	/**
 	 * The database table used by the model.
 	 *

@@ -1,3 +1,33 @@
-h1 {
-  color: #0f0;
+@import 'variables';
+@import 'mixins';
+
+.wrapper {
+    margin-top: 50px;
+    padding: 15px;
+}
+// Custom navbar
+.navbar-custom {
+    background-color: $madison;
+
+    .navbar-brand {
+        color: $white;
+    }
+    .navbar-nav {
+        &.navbar-right {
+            margin-right: 20px;
+        }
+        a {
+            color: $white;
+            // margin-right: 25px;
+        }
+        a:hover {
+            background-color: $bluewood;
+        }
+        a:visited {
+            background-color: $bluewood;
+        }
+    }
+    .dropdown {
+        margin-right: 20px;
+    }
 }
