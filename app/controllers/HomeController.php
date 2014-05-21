@@ -22,7 +22,7 @@ class HomeController extends BaseController {
                 ->withInput()
                 ->with('error', 'Invalid credentials');
         }
-        return Redirect::to('/');
+        return Redirect::intended('/');
     }
 
     public function register() {
@@ -30,6 +30,18 @@ class HomeController extends BaseController {
     }
 
     public function doRegister() {
-        return Redirect::to('/');
+        $results = Validator::make(Input::all(), User::getRules());
+        if ($results->fails()) {
+            return Redirect::back()
+                ->withInput(Input::only(['name', 'email', 'country']))
+                ->withErrors($results);
+        }
+
+        $user = new User(Input::all());
+        $user->password = Hash::make(Input::get('password'));
+        $user->save();
+
+        return Redirect::to('/')
+            ->with('message', 'Successfully registered, please login.');
     }
 }

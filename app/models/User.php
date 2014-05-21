@@ -6,6 +6,9 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 class User extends Eloquent implements UserInterface, RemindableInterface {
 	public static $ROLE_COMMON = 'Profile.CommonRole';
 	public static $ROLE_ADMIN = 'Profile.AdminRole';
+
+	public $fillable = ['name', 'email', 'country'];
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -79,6 +82,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public function getReminderEmail()
 	{
 		return $this->email;
+	}
+
+	public static function getRules() {
+		$rules = array(
+			'email'=>'required|unique:users',
+			'name'=>'required',
+			'country'=>'required',
+			'password'=>'required',
+			'confirm'=>'required|same:password'
+		);
+		return $rules;
 	}
 
 }

@@ -19,6 +19,13 @@
         {{ Session::get('error' )}}
       </div>
     @endif
+    @if($errors->has())
+      <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+          {{ $error }}<br>
+        @endforeach
+      </div>
+    @endif
     @yield('content')
   </div>
 <script src="{{ asset('assets/js/main.js') }}"></script>
