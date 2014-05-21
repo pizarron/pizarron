@@ -10,6 +10,8 @@ Route::group(array('before'=>'guest'), function() {
 });
 
 Route::group(array('before'=>'auth'), function() {
+    Route::get('profile/{id?}', 'ProfileController@index');
+
     Route::get('logout', 'HomeController@logout');
 });
 

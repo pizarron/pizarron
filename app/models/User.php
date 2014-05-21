@@ -8,6 +8,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	public static $ROLE_ADMIN = 'Profile.AdminRole';
 
 	public $fillable = ['name', 'email', 'country'];
+	public $guarded = ['password'];
 
 	/**
 	 * The database table used by the model.
