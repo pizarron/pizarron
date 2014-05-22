@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.profile {
+  background-color: $white;
+  @include box-shadow(0px, 5px, 20px, rgba(0,0,0,0.4));
+  @include border-radius(3px);
+
+  .avatar-container {
+    margin: -60px auto 1px auto;
+    width: 150px;
+    height: 150px;
+    background-color: #595;
+  }
+
+  .profile-edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
