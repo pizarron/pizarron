@@ -10,7 +10,9 @@ Route::group(array('before'=>'guest'), function() {
 });
 
 Route::group(array('before'=>'auth'), function() {
+    Route::get('profile/edit', 'ProfileController@edit');
     Route::get('profile/{id?}', 'ProfileController@index');
+    Route::post('profile/upload', 'ProfileController@uploadImage');
 
     Route::get('logout', 'HomeController@logout');
 });
@@ -23,3 +25,4 @@ Route::group(array('before'=>'auth'), function() {
  */
 View::composer('home.index', 'ComposerHelper@getCountries');
 View::composer('home.register', 'ComposerHelper@getCountries');
+View::composer('profile.edit', 'ComposerHelper@getCountries');

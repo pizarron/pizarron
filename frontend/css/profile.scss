@@ -3,6 +3,7 @@
 
 .profile {
   background-color: $white;
+  color: $gray;
   @include box-shadow(0px, 5px, 20px, rgba(0,0,0,0.4));
   @include border-radius(3px);
 
@@ -15,7 +16,15 @@
 
   .profile-edit {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 15px;
+    right: 15px;
+  }
+
+  h2 {
+    margin: 0 0 10px 0;
+  }
+
+  input, select {
+    margin-bottom: 10px;
   }
 }

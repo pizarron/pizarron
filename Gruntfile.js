@@ -14,10 +14,15 @@ module.exports = function(grunt) {
       options: {
         separator: ';'
       },
-      js_frontend: {
+      js_frontend_vendor: {
         src: [
-          './frontend/js/vendor/jquery.min.js',
-          './frontend/js/vendor/bootstrap.min.js',
+          './frontend/vendor/jquery.min.js',
+          './frontend/vendor/bootstrap.min.js'
+        ],
+        dest: './public/assets/js/vendor.js'
+      },
+      js_frontend_main: {
+        src: [
           './frontend/js/**/*.js'
         ],
         dest: './public/assets/js/main.js'
@@ -64,7 +69,8 @@ module.exports = function(grunt) {
       },
       frontend: {
         files: {
-          './public/assets/js/main.js': './public/assets/js/main.js'
+          './public/assets/js/vendor.min.js': './public/assets/js/vendor.js',
+          './public/assets/js/main.min.js': './public/assets/js/main.js'
         }
       }
     },
@@ -74,11 +80,11 @@ module.exports = function(grunt) {
      * It also compiles and concatenates css files
      */
     watch: {
-      js_frontend: {
+      js_frontend_main: {
         files: [
           './frontend/js/**/*.js'
         ],
-        tasks: ['concat:js_frontend', 'uglify:frontend'],
+        tasks: ['concat:js_frontend_vendor', 'concat:js_frontend_main' ,'uglify:frontend'],
         options: {
           livereload: false
         }

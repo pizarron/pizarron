@@ -5,6 +5,7 @@
   <title>Pizarron | @yield('title', 'Home')</title>
   <link rel="stylesheet" href="{{ asset('assets/css/vendors.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+  @yield('styles', '')
 </head>
 <body>
   @include('partials.navbar')
@@ -28,6 +29,9 @@
     @endif
     @yield('content')
   </div>
+<script src="{{ asset('assets/js/vendor.js') }}"></script>
+@yield('other_vendors', '')
 <script src="{{ asset('assets/js/main.js') }}"></script>
+@yield('scripts', '')
 </body>
 </html>

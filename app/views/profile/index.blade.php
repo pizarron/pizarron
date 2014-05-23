@@ -7,7 +7,9 @@
   <div class="col-md-6 col-md-offset-3 profile">
     <div class="avatar-container">f</div>
     @if (Auth::user()->id == $model->id)
-      <div class="profile-edit">Edit</div>
+      <div class="profile-edit">
+        <a href="{{url('profile/edit')}}" class="btn btn-ming">Edit</a>
+      </div>
     @endif
     <div class="row">
       <div class="col-md-6">
@@ -16,9 +18,17 @@
             <h5><b>Info</b></h5>
           </div>
           <div class="widget-body">
-            {{{ $model->name }}}<br>
-            {{ $model->email }}<br>
+            <h2>{{{ $model->name }}}</h2>
+            <span><a href="mailto:{{$model->email}}">{{ $model->email }}</a></span><br>
             {{ $model->country }}<br>
+          </div>
+        </div>
+        <div class="widget widget-ming">
+          <div class="widget-head">
+            <h5><b>Bio</b></h5>
+          </div>
+          <div class="widget-body">
+            {{ $model->bio }}<br>
           </div>
         </div>
       </div>
