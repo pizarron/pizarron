@@ -1,12 +1,9 @@
 <?php
 class ProfileController extends BaseController {
     public function index($id = 0) {
-        if ($id == 0) {
-            $user = Auth::user();
-        } else {
-            $user = User::find($id);
-        }
+        $user = $id == 0 ? Auth::user() : User::find($id);
 
+        print_r(DB::getQueryLog());
         return View::make('profile.index')
             ->with('model', $user);
     }

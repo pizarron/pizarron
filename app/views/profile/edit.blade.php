@@ -56,7 +56,7 @@
       <div class="col-md-6">
         <div class="widget widget-ming">
           <div class="widget-head">
-            <h5><b>Security Info</b></h5>
+            <h5><b>Security Info {{$model->picture_url}}</b></h5>
           </div>
           <div class="widget-body">
             {{Form::open(['url'=>'profile/security/edit'])}}

@@ -14,6 +14,7 @@ Thumbs.db
 /public/assets/css
 /public/assets/js
 /public/assets/vendor
+/public/uploads/avatars/*
 
 /node_modules
 *.sublime-project
