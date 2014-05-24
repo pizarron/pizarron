@@ -18,35 +18,57 @@ class ProfileController extends BaseController {
             ->with('model', $user);
     }
 
+    public function doEdit() {
+        $user = Auth::user();
+        $user->name = Input::get('name');
+        $user->country = Input::get('country');
+        $user->bio = Input::get('bio');
+        $user->website = Input::get('website');
+        $user->save();
+
+        return Redirect::to('profile/edit')
+            ->with('message', 'Information successfully updated.');
+    }
+
+    public function doEditSecurity() {
+        $user = Auth::user();
+        $credentials = ['email'=>$user->email, 'password'=>Input::get('current')];
+        $rules = [
+            'current'=>'required',
+            'new_password' =>'required',
+            'confirm' =>'required|same:new_password'
+        ];
+
+        $results = Validator::make(Input::all(), $rules);
+        if ($results->fails()) {
+            return Redirect::back()
+                ->withErrors($results)
+                ->with('model', $user);
+        }
+
+        if (Auth::validate($credentials)) {
+            $user->password = Hash::make(Input::get('new_password'));
+            $user->save();
+
+            return Redirect::to('profile/edit')
+                ->with('message', 'Password changed successfully.');
+        }
+        return Redirect::back()
+            ->with('error', 'Your current passsword is invalid');
+    }
+
     public function uploadImage() {
-        $extensions = ['png', 'jpeg', 'jpg', 'gif'];
-        $maxSize = 1024 * 2000;// 200kb supposedly
-        $path = public_path() . "/uploads/";
-        $fileName = null;
-        $status = null;
+        $res = $this->uploadImageFile(Input::file('picture_url'));
 
-        $file = Input::file('profile_url');
-        $ext = $file->guessClientExtension();
-        $size = $file->getClientSize();
-        $name = $file->getClientOriginalName();
-
-        if (in_array($ext, $extensions) and $size < $maxSize) {
-            if ($file->move($path, $name)) {
-                $fileName = $name;
-                $status = 'ok';
-            } else {
-                $fileName = '';
-                $status = 'error';
-            }
-        } else {
-            $fileName = '';
-            $status = 'error';
+        if ($res['status'] === 'ok') {
+            $user = Auth::user();
+            $user->picture_url = $res['fileName'];
+            $user->save();
         }
 
         return [
-            'status' => $status,
-            'fileName'=> $fileName,
-            'path'=>$path
+            'status' => $res['status'],
+            'fileName'=> $res['fileName'],
         ];
     }
 }

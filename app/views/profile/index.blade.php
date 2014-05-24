@@ -5,7 +5,9 @@
   @endif
 <div class="row" style="margin-top: 70px">
   <div class="col-md-6 col-md-offset-3 profile">
-    <div class="avatar-container">f</div>
+    <div class="avatar-container">
+      <img id="avatar" src="{{asset("uploads/avatars/$model->picture_url")}}" />
+    </div>
     @if (Auth::user()->id == $model->id)
       <div class="profile-edit">
         <a href="{{url('profile/edit')}}" class="btn btn-ming">Edit</a>

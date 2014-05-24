@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Cleans everything on public assets folder
     clean: {
-      main: ['./public/assets/js', './public/assets/css'],
+      main: ['./public/assets/js', './public/assets/css', './public/assets/vendor'],
       css: ['./public/assets/css/main.css', './public/assets/css/vendors.css']
     },
     /**
@@ -16,17 +16,18 @@ module.exports = function(grunt) {
       },
       js_frontend_vendor: {
         src: [
-          './frontend/vendor/jquery.min.js',
-          './frontend/vendor/bootstrap.min.js'
+          './frontend/vendor/js/jquery.min.js',
+          './frontend/vendor/js/bootstrap.min.js'
         ],
         dest: './public/assets/js/vendor.js'
       },
-      js_frontend_main: {
-        src: [
-          './frontend/js/**/*.js'
-        ],
-        dest: './public/assets/js/main.js'
-      }
+      // in case you want to concat everything
+      // js_frontend_main: {
+      //   src: [
+      //     './frontend/js/**/*.js'
+      //   ],
+      //   dest: './public/assets/js/main.js'
+      // }
     },
     /**
      * Compiles all stylesheets in different files in public/assets/css
@@ -55,7 +56,7 @@ module.exports = function(grunt) {
             './public/assets/css/**/*.css'
           ],
           './public/assets/css/vendors.css': [
-            './frontend/css/bootstrap.min.css'
+            './frontend/vendor/css/bootstrap.min.css'
           ]
         }
       }
@@ -70,8 +71,18 @@ module.exports = function(grunt) {
       frontend: {
         files: {
           './public/assets/js/vendor.min.js': './public/assets/js/vendor.js',
-          './public/assets/js/main.min.js': './public/assets/js/main.js'
+          // './public/assets/js/main.min.js': './public/assets/js/main.js'
         }
+      },
+      // when we pretend to use single files
+      others: {
+        files: [{
+          expand: true,
+          cwd: './frontend/js',
+          src: '**/*.js',
+          dest: './public/assets/js',
+          ext: '.min.js'
+        }]
       }
     },
     /**
@@ -80,11 +91,13 @@ module.exports = function(grunt) {
      * It also compiles and concatenates css files
      */
     watch: {
-      js_frontend_main: {
+      javascript: {
         files: [
           './frontend/js/**/*.js'
         ],
-        tasks: ['concat:js_frontend_vendor', 'concat:js_frontend_main' ,'uglify:frontend'],
+        // as this is not a single page application, I prefer to only copy files
+        // tasks: ['concat:js_frontend_vendor', 'concat:js_frontend_main' ,'uglify:frontend'],
+        tasks: ['concat:js_frontend_vendor' ,'uglify:frontend', 'uglify:others'],
         options: {
           livereload: false
         }
@@ -95,8 +108,22 @@ module.exports = function(grunt) {
         ],
         tasks: ['compass', 'clean:css', 'cssmin']
       }
+    },
+    // copy all vendor styles and javascript to vendor folder in public
+    copy: {
+      main: {
+        files: [
+          {
+            expand: true,
+            cwd: './frontend/vendor',
+            src: ['**'],
+            dest: './public/assets/vendor/'
+          }
+        ]
+      }
     }
   });
+
 
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -104,6 +131,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('build', [
     'clean:main',
@@ -112,5 +140,5 @@ module.exports = function(grunt) {
     'concat',
     'uglify'
   ]);
-  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('default', ['build', 'copy:main', 'watch']);
 };

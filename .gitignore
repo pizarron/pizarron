@@ -13,6 +13,7 @@ Thumbs.db
 # in frontend/css and frontend/js
 /public/assets/css
 /public/assets/js
+/public/assets/vendor
 
 /node_modules
 *.sublime-project

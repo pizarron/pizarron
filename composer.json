@@ -5,7 +5,6 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.1.*"
-		// "nathanmac/laravel-guid": "dev-master"
 	},
 	"autoload": {
 		"classmap": [

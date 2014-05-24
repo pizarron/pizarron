@@ -31,7 +31,6 @@
   </div>
 <script src="{{ asset('assets/js/vendor.js') }}"></script>
 @yield('other_vendors', '')
-<script src="{{ asset('assets/js/main.js') }}"></script>
 @yield('scripts', '')
 </body>
 </html>
