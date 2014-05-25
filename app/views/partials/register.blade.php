@@ -35,5 +35,5 @@
     'class'=>'form-control'
   ))}}
 </div>
-{{Form::submit('Register', array('class'=>'btn btn-ming'))}}
+{{Form::submit('Register', array('class'=>'btn btn-green'))}}
 {{Form::close()}}

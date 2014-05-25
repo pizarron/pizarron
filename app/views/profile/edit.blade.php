@@ -9,14 +9,14 @@
       </a>
     </div>
     <!-- <input id="avatarUploader" type="file" name="picture_url"> -->
-    <div class="btn btn-ming fileinput-button">
+    <div class="btn btn-green fileinput-button">
         <span>Upload Image</span>
         <!-- The file input field used as target for the file upload widget -->
         <input id="avatarUploader" type="file" name="picture_url">
     </div>
     <div class="row">
       <div class="col-md-6">
-        <div class="widget widget-ming">
+        <div class="widget widget-green">
           <div class="widget-head">
             <h5><b>Basic Info</b></h5>
           </div>
@@ -49,14 +49,14 @@
               ])}}
             </div>
             {{Form::submit('Save changes', [
-              'class' => 'btn btn-ming'
+              'class' => 'btn btn-green'
             ])}}
             {{Form::close()}}
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="widget widget-ming">
+        <div class="widget widget-green">
           <div class="widget-head">
             <h5><b>Security Info</b></h5>
           </div>
@@ -82,7 +82,7 @@
                 'autocomplete'=>'off'
               ])}}
               {{Form::submit('Change Password', [
-                'class'=>'btn btn-ming'
+                'class'=>'btn btn-green'
               ])}}
             </div>
             {{Form::close()}}

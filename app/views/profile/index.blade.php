@@ -10,24 +10,43 @@
     </div>
     @if (Auth::user()->id == $model->id)
       <div class="profile-edit">
-        <a href="{{url('profile/edit')}}" class="btn btn-ming">Edit</a>
+        <a href="{{url('profile/edit')}}" class="btn btn-green">Edit</a>
       </div>
     @endif
     <div class="row">
       <div class="col-md-6">
-        <div class="widget widget-ming">
+        <div class="widget widget-green">
           <div class="widget-head">
-            <h5><b>Info</b></h5>
+            <h5><i class="fa fa-user"></i>&nbsp;<b>Info</b></h5>
           </div>
           <div class="widget-body">
             <h2>{{{ $model->name }}}</h2>
-            <span><a href="mailto:{{$model->email}}">{{ $model->email }}</a></span><br>
-            {{ $model->country }}<br>
+            <hr>
+            <span>
+              <i class="fa fa-envelope-o"></i>&nbsp;&nbsp;
+              <a href="mailto:{{$model->email}}">{{ $model->email }}</a>
+            </span><br>
+            <span>
+              <i class="fa fa-flag"></i>&nbsp;&nbsp;
+              {{ Form::country($model->country) }}
+            </span><br>
+            @if ($model->website != null)
+            <span>
+              <i class="fa fa-link"></i>&nbsp;&nbsp;
+              <a href="{{ $model->website }}" target="_">{{$model->website}}</a>
+            </span><br>
+            @endif
+            <span>
+              <i class="fa fa-clock-o"></i>&nbsp;&nbsp;
+              Joined on {{ Form::formatDate($model->created_at) }}
+            </span>
           </div>
         </div>
-        <div class="widget widget-ming">
+        <div class="widget widget-green">
           <div class="widget-head">
-            <h5><b>Bio</b></h5>
+            <h5>
+              <i class="fa fa-briefcase"></i>&nbsp;<b>Bio</b>
+            </h5>
           </div>
           <div class="widget-body">
             {{ $model->bio }}<br>
@@ -35,23 +54,23 @@
         </div>
       </div>
       <div class="col-md-6">
-        <div class="widget widget-ming">
+        <div class="widget widget-green">
           <div class="widget-head">
-            <h5><b>Trying to learn</b></h5>
+            <h5><i class="fa fa-graduation-cap"></i>&nbsp;<b>Trying to learn</b></h5>
           </div>
           <div class="widget-body">
           </div>
         </div>
-        <div class="widget widget-ming">
+        <div class="widget widget-green">
           <div class="widget-head">
-            <h5><b>Teaching</b></h5>
+            <h5><i class="fa fa-wechat"></i>&nbsp;<b>Teaching</b></h5>
           </div>
           <div class="widget-body">
           </div>
         </div>
-        <div class="widget widget-ming">
+        <div class="widget widget-green">
           <div class="widget-head">
-            <h5><b>Organizations</b></h5>
+            <h5><i class="fa fa-university"></i>&nbsp;<b>Organizations</b></h5>
           </div>
           <div class="widget-body">
           </div>
@@ -60,5 +79,4 @@
     </div>
   </div>
 </div>
-
 @stop

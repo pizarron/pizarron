@@ -28,3 +28,16 @@ Route::group(array('before'=>'auth'), function() {
 View::composer('home.index', 'ComposerHelper@getCountries');
 View::composer('home.register', 'ComposerHelper@getCountries');
 View::composer('profile.edit', 'ComposerHelper@getCountries');
+
+/**
+ * All html macros are added here
+ * TODO: the same as composers, there should be a way to put them
+ * in other file such as macros.php
+ */
+Form::macro('country', function($code) {
+    return FormHelper::getCountry($code);
+});
+Form::macro('formatDate', function($date) {
+    // month name day, year
+    return date('F d, o', $date->getTimeStamp());
+});

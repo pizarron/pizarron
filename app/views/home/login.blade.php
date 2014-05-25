@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
 <div class="col-md-4 col-md-offset-4">
-  <div class="widget widget-ming">
+  <div class="widget widget-green">
     <div class="widget-head">
       <h4>Log In</h4>
     </div>
@@ -25,7 +25,7 @@
         ))}}
       </div>
       {{Form::submit('Log In', array(
-        'class'=>'btn btn-ming'
+        'class'=>'btn btn-green'
       ))}}
       {{Form::close()}}
     </div>

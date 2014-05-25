@@ -3,9 +3,7 @@
     <button type="button" class="navbar-toggle"
             data-toggle="collapse" data-target="#my-navbar">
       <span class="sr-only">Toggle</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+      <i class="fa fa-bars"></i>
     </button>
     <a class="navbar-brand" href="/">Pizarron</a>
   </div>

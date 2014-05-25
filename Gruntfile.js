@@ -56,7 +56,8 @@ module.exports = function(grunt) {
             './public/assets/css/**/*.css'
           ],
           './public/assets/css/vendors.css': [
-            './frontend/vendor/css/bootstrap.min.css'
+            './frontend/vendor/css/bootstrap.min.css',
+            './frontend/vendor/css/font-awesome.min.css'
           ]
         }
       }

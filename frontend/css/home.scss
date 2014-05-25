@@ -7,10 +7,15 @@
 }
 // Custom navbar
 .navbar-custom {
-  background-color: $madison;
+  background-color: $ming;
 
   .navbar-brand {
     color: $white;
+  }
+  .navbar-header {
+    .navbar-toggle {
+      color: $white;
+    }
   }
   .navbar-nav {
     &.navbar-right {
