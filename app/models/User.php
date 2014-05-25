@@ -85,6 +85,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	public function organizations() {
+		return $this->belongsToMany('Organization', 'organization_admin');
+	}
+
+	public function courses() {
+		return $this->hasMany('Course');
+	}
+
 	public static function getRules() {
 		$rules = array(
 			'email'=>'required|unique:users',

@@ -18,7 +18,7 @@
         <li><a href="{{ url('register') }}">Register</a></li>
       @else
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->email}} <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="{{url('profile')}}">Profile</a></li>
             <li class="divider"></li>
