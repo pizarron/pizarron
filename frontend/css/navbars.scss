@@ -1,0 +1,109 @@
+@import 'variables';
+@import 'mixins';
+
+.navbar-custom {
+  background-color: $ming;
+  border-color: $gray;
+
+  .dropdown {
+    margin-right: 20px;
+  }
+
+  .navbar-brand {
+    color: $white;
+  }
+
+  .navbar-brand:hover, .navbar-brand:focus {
+    color: $white;
+    background-color: transparent;
+  }
+
+  .navbar-text {
+    color: $white;
+  }
+
+  .navbar-toggle {
+    border: 0;
+    i {
+      color: $white;
+    }
+  }
+  .navbar-toggle:hover, .navbar-toggle:focus {
+    background-color: $bluewood;
+  }
+
+  .navbar-collapse, .navbar-form {
+    border-color: $white;
+  }
+
+  .navbar-link {
+    color: $white;
+  }
+
+  .navbar-link:hover {
+    color: $white;
+  }
+
+  .navbar-nav {
+    > li {
+      > a {
+        color: $white;
+      }
+      > a:hover,>a:focus {
+        color: $white;
+        text-decoration: underline;
+        background-color: transparent;
+      }
+    }
+    > .active {
+      > a,>a:hover,>a:focus {
+        color: $white;
+        background-color: transparent;
+      }
+    }
+    > .disable {
+      > a,>a:hover,>a:focus {
+        color: $white;
+        background-color: transparent;
+      }
+    }
+    > .open {
+      >a,>a:hover,>a:focus {
+        color: $white;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .navbar-custom {
+    .navbar-nav {
+      .open {
+        .dropdown-menu {
+          >li {
+            >a{
+              color: $white;
+            }
+            >a:hover,>a:focus {
+              color: $white;
+              background-color: transparent;
+            }
+          }
+          >.active {
+            >a,>a:hover,>a:focus {
+              color: $white;
+              background-color: transparent;
+            }
+          }
+          >.disabled {
+            >a,>a:hover,>a:focus {
+              color: $white;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

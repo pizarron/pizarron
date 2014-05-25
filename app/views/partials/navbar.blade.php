@@ -10,7 +10,7 @@
 
   <div class="collapse navbar-collapse" id="my-navbar">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">+</a></li>
+      <li><a href="#">pr0n</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       @if(!Auth::check())

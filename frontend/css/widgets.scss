@@ -1,0 +1,53 @@
+@import 'variables';
+@import 'mixins';
+
+// Widget boxes general
+.widget {
+  margin: 30px auto;
+  .widget-head {
+    padding: 1px 7px;
+    @include border-radius-separate(4px,4px,0,0);
+  }
+  .widget-body {
+    background-color: $white;
+    padding: 10px;
+    input[type=submit] {
+      width: 100%;
+    }
+  }
+}
+// ming widget
+.widget-ming,
+.widget-ming {
+  >.widget-head {
+    border-color: $ming;
+  }
+  >.widget-body {
+    border: 1px solid $ming;
+  }
+}
+.widget-ming {
+  >.widget-head {
+    background-color: $ming;
+    color: $white;
+  }
+  >.widget-body {
+    border: 1px solid $ming;
+  }
+}
+// green widget
+.widget-green,
+.widget-green {
+  >.widget-head {
+    border-color: $green-haze;
+  }
+  >.widget-body {
+    border: 1px solid $green-haze;
+  }
+}
+.widget-green {
+  >.widget-head {
+    background-color: $green-haze;
+    color: $white;
+  }
+}
