@@ -1,8 +1,6 @@
 @extends('master')
 
 @section('content')
-  @if (Auth::user()->id == $model->id)
-  @endif
 <div class="row" style="margin-top: 70px">
   <div class="col-md-6 col-md-offset-3 profile">
     <div class="avatar-container">
@@ -73,6 +71,9 @@
             <h5><i class="fa fa-university"></i>&nbsp;<b>Organizations</b></h5>
           </div>
           <div class="widget-body">
+            @foreach($organizations as $org)
+              <a href="{{url("organization/$org->id")}}">{{{ $org->name }}}</a>
+            @endforeach
           </div>
         </div>
       </div>

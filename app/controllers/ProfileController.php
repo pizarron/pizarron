@@ -4,7 +4,8 @@ class ProfileController extends BaseController {
         $user = $id == 0 ? Auth::user() : User::find($id);
 
         return View::make('profile.index')
-            ->with('model', $user);
+            ->with('model', $user)
+            ->with('organizations', $user->organizations()->get());
     }
 
     public function edit() {
@@ -29,11 +30,7 @@ class ProfileController extends BaseController {
     public function doEditSecurity() {
         $user = Auth::user();
         $credentials = ['email'=>$user->email, 'password'=>Input::get('current')];
-        $rules = [
-            'current'=>'required',
-            'new_password' =>'required',
-            'confirm' =>'required|same:new_password'
-        ];
+        $rules = $this->getSecurityRules();
 
         $results = Validator::make(Input::all(), $rules);
         if ($results->fails()) {
@@ -65,6 +62,14 @@ class ProfileController extends BaseController {
         return [
             'status' => $res['status'],
             'fileName'=> $res['fileName'],
+        ];
+    }
+
+    private function getSecurityRules() {
+        return [
+            'current'=>'required',
+            'new_password' =>'required',
+            'confirm' =>'required|same:new_password'
         ];
     }
 }

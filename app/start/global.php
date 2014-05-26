@@ -34,6 +34,15 @@ ClassLoader::addDirectories(array(
 
 Log::useFiles(storage_path().'/logs/laravel.log');
 
+
+App::missing(function($exception) {
+    return "We have a 404 jefe";
+});
+// App:error(function(ModelNotFoundException $model) {
+//     // TODO: work with this kind of exceptions :P
+//     return "meg";
+// });
+
 /*
 |--------------------------------------------------------------------------
 | Application Error Handler
