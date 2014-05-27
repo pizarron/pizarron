@@ -19,6 +19,10 @@ Route::group(array('before'=>'auth'), function() {
     Route::post('profile/security/edit', 'ProfileController@doEditSecurity');
     Route::post('profile/upload', 'ProfileController@uploadImage');
 
+    Route::get('organization/{id}/admin', [
+        'before'=>'organizationAdmin',
+        'uses'=>'OrganizationController@admin'
+    ]);
     Route::get('organization/{id}', 'OrganizationController@index')->where('id', '[0-9]+');
 
     Route::get('logout', 'HomeController@logout');

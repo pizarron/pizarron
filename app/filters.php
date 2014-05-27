@@ -78,3 +78,12 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('organizationAdmin', function() {
+    $organization = Organization::findOrFail(Route::input('id'));
+    $isAdmin = $organization->isAdmin(Auth::user()->id);
+
+    if (!$isAdmin) {
+        return Redirect::to('/');
+    }
+});

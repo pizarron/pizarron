@@ -8,7 +8,7 @@
       <div class="description">
         @if ($isOrganizationAdmin)
         <div style="position: absolute; top: -10px; right:0px;">
-          <a class="btn btn-green" href="#">
+          <a class="btn btn-green" href="{{url("organization/$model->id/admin")}}">
             <i class="fa fa-cog"></i> Admin
           </a>
         </div>

@@ -8,4 +8,11 @@ class OrganizationController extends BaseController {
             ->with('model', $organization)
             ->with('isOrganizationAdmin', $isAdmin);
     }
+
+    public function admin($id) {
+        $organization = Organization::findOrFail($id);
+
+        return View::make('organization.admin')
+            ->with('model', $organization);
+    }
 }

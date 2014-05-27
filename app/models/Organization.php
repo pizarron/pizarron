@@ -9,7 +9,7 @@ class Organization extends Eloquent {
     }
 
     public function isAdmin($userId) {
-        // TODO set is admin
-        return false;
+        $admins = $this->admins()->whereRaw('user_id = ?', [$userId])->get();
+        return count($admins) > 0;
     }
 }
