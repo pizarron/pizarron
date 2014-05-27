@@ -1,0 +1,37 @@
+@import 'variables';
+@import 'mixins';
+
+.organization {
+  color: $gray;
+  clear: left;
+  @include box-shadow(0px, 5px, 20px, rgba(0,0,0,0.4));
+  @include border-radius(3px);
+
+  .avatar {
+    background-color: $white;
+    overflow: auto;
+    margin-left: -15px;
+    margin-right: -15px;
+    border-bottom: 1px $light-gray solid;
+
+    .description {
+      position: relative;
+      margin-left: 15px;
+      margin-right: 15px;
+      padding-bottom: 10px;
+      @include box-sizing();
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      float: left;
+      margin-right: 15px;
+      border-right: 1px $light-gray solid;
+      border-bottom: 1px $light-gray solid;
+    }
+    hr {
+      padding: 0;
+      margin: 0 0 10px 0;
+    }
+  }
+}
