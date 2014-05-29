@@ -3,7 +3,19 @@
     initUploader();
     initSummernote();
     $('#basicInfoForm').on('submit', onBasicInfoFormSubmit);
+    initAutoComplete();
   });
+
+  var initAutoComplete = function() {
+    $('#autocomplete').autocomplete({
+      serviceUrl: '/profile/get',
+      noCache: true,
+      onSelect: function(e) {
+        console.log(e.value + ' ' + e.data);
+      }
+    });
+  };
+
   var initSummernote = function(){
     var options = {
       height: 200,
@@ -17,9 +29,11 @@
     };
     $('#description').summernote(options);
   };
+
   var onBasicInfoFormSubmit = function() {
     $('textarea[name="description"]').html($('#description').code());
   };
+
   var initUploader = function() {
     var id = $('#organization-id').val();
     var url = '/organization/' + id + '/admin/upload/';

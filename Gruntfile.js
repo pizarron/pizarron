@@ -18,7 +18,8 @@ module.exports = function(grunt) {
         src: [
           './frontend/vendor/js/jquery.min.js',
           './frontend/vendor/js/bootstrap.min.js',
-          './frontend/vendor/js/summernote.min.js'
+          './frontend/vendor/js/summernote.min.js',
+          './frontend/vendor/js/jquery.autocomplete.min.js',
         ],
         dest: './public/assets/js/vendor.js'
       },

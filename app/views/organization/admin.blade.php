@@ -39,6 +39,7 @@
                     <input id="avatarUploader" type="file" name="picture_url">
                   </div>
                 </center>
+                <br>
                 <div class="form-group">
                   {{Form::open(['url'=>"organization/$model->id/edit",
                     'id'=>'basicInfoForm'
@@ -76,11 +77,26 @@
             <div class="widget widget-green">
               <div class="widget-head">
                 <h5>
-                  <b><i class="fa fa-dashboard"></i>&nbsp;Administration Panel</b>
+                  <b><i class="fa fa-lock"></i>&nbsp;Administrators</b>
                 </h5>
               </div>
               <div class="widget-body">
-                TODO!!!
+                <input type="text" name="country" id="autocomplete" class="form-control"/>
+              </div>
+            </div>
+            <div class="widget widget-green">
+              <div class="widget-head">
+                <h5><b><i class="fa fa-users"></i>&nbsp;Teachers</b></h5>
+              </div>
+              <div class="widget-body">
+              </div>
+            </div>
+            <div class="widget widget-green">
+              <div class="widget-head">
+                <h5><b><i class="fa fa-book"></i>&nbsp;Courses</b></h5>
+              </div>
+              <div class="widget-body">
+
               </div>
             </div>
           </div>

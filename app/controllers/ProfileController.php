@@ -65,6 +65,21 @@ class ProfileController extends BaseController {
         ];
     }
 
+    public function profileSearch() {
+        $q = Input::get('query');
+        // TODO: search by query
+        return [
+            'query'=>$q,
+            'suggestions' =>[
+                ['value'=>'andorra1', 'data'=>'ad1'],
+                ['value'=>'andorra2', 'data'=>'ad2'],
+                ['value'=>'andorra3', 'data'=>'ad3'],
+                ['value'=>'andorra4', 'data'=>'ad4'],
+                ['value'=>'andorra5', 'data'=>'ad5'],
+            ]
+        ];
+    }
+
     private function getSecurityRules() {
         return [
             'current'=>'required',
