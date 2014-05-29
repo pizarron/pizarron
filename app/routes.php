@@ -23,6 +23,10 @@ Route::group(array('before'=>'auth'), function() {
         'before'=>'organizationAdmin',
         'uses'=>'OrganizationController@admin'
     ]);
+    Route::post('organization/{id}/admin/upload', [
+        'before'=>'organizationAdmin',
+        'uses'=>'OrganizationController@uploadImage'
+    ]);
     Route::get('organization/{id}', 'OrganizationController@index')->where('id', '[0-9]+');
 
     Route::get('logout', 'HomeController@logout');

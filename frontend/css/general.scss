@@ -18,7 +18,10 @@ body {
   li {
     width: 100%;
     &.active {
-      background-color: $light-gray;
+      background-color: $ming;
+      a {
+        color: $white;
+      }
       border-top: 1px solid $white;
     }
     a {
@@ -29,8 +32,8 @@ body {
       @include border-radius-separate(0, 3px, 0, 3px);
     }
     a:hover {
-      color: $white;
-      background-color: $ming;
+      color: $ming;
+      background-color: $light-gray;
       text-decoration: none;
     }
   }

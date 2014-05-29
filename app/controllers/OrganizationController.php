@@ -9,6 +9,21 @@ class OrganizationController extends BaseController {
             ->with('isOrganizationAdmin', $isAdmin);
     }
 
+    public function uploadImage($id) {
+        $organization = Organization::findOrFail($id);
+
+        $res = $this->uploadImageFile(Input::file('picture_url'));
+        if ($res['status'] === 'ok') {
+            $organization->picture_url = $res['fileName'];
+            $organization->save();
+        }
+
+        return [
+            'status' => $res['status'],
+            'fileName'=> $res['fileName'],
+        ];
+    }
+
     public function admin($id) {
         $organization = Organization::findOrFail($id);
 

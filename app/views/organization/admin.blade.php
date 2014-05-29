@@ -31,7 +31,8 @@
               </div>
               <div class="widget-body">
                 <center>
-                  <img src="{{url("uploads/avatars/$model->picture_url")}}" class="avatar-edit">
+                  <img class="avatar-edit" id="avatar"
+                    src="{{url("uploads/avatars/$model->picture_url")}}">
                   <div class="btn btn-green fileinput-button">
                     <span>Upload Image</span>
                     <!-- The file input field used as target for the file upload widget -->
@@ -39,6 +40,7 @@
                   </div>
                 </center>
                 <div class="form-group">
+                  {{Form::hidden('id', $model->id, ['id'=>'organization-id'])}}
                   <b>{{Form::label('name', 'Organization Name:')}}</b>
                   {{Form::text('name', $model->name, [
                     'placeholder'=>'Organization Name',
@@ -83,3 +85,13 @@
 @section('styles')
 <link rel="stylesheet" href="{{asset('assets/vendor/css/jquery.fileupload.css')}}">
 @stop
+
+@section('other_vendors')
+<script src="{{asset('assets/vendor/js/jquery.ui.widget.js')}}"></script>
+<script src="{{asset('assets/vendor/js/jquery.iframe-transport.js')}}"></script>
+<script src="{{asset('assets/vendor/js/jquery.fileupload.js')}}"></script>
+@stop
+
+@section('scripts')
+<script src="{{asset('assets/js/admin-panel.min.js')}}"></script>
+@endsection
