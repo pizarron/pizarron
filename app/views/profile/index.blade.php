@@ -8,7 +8,9 @@
     </div>
     @if (Auth::user()->id == $model->id)
       <div class="profile-edit">
-        <a href="{{url('profile/edit')}}" class="btn btn-green">Edit</a>
+        <a href="{{url('profile/edit')}}" class="btn btn-green">
+          <i class="fa fa-edit"></i> Edit
+        </a>
       </div>
     @endif
     <div class="row">

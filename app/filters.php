@@ -84,6 +84,6 @@ Route::filter('organizationAdmin', function() {
     $isAdmin = $organization->isAdmin(Auth::user()->id);
 
     if (!$isAdmin) {
-        return Redirect::to('/');
+        App::abort(404);
     }
 });

@@ -9,3 +9,29 @@ body {
   margin-top: 50px;
   padding: 15px;
 }
+
+.menu-widget {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    width: 100%;
+    &.active {
+      background-color: $light-gray;
+      border-top: 1px solid $white;
+    }
+    a {
+      color: $ming;
+      width: 100%;
+      padding: 10px;
+      display: block;
+      @include border-radius-separate(0, 3px, 0, 3px);
+    }
+    a:hover {
+      color: $white;
+      background-color: $ming;
+      text-decoration: none;
+    }
+  }
+}
