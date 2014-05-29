@@ -17,7 +17,8 @@ module.exports = function(grunt) {
       js_frontend_vendor: {
         src: [
           './frontend/vendor/js/jquery.min.js',
-          './frontend/vendor/js/bootstrap.min.js'
+          './frontend/vendor/js/bootstrap.min.js',
+          './frontend/vendor/js/summernote.min.js'
         ],
         dest: './public/assets/js/vendor.js'
       },
@@ -57,7 +58,8 @@ module.exports = function(grunt) {
           ],
           './public/assets/css/vendors.css': [
             './frontend/vendor/css/bootstrap.min.css',
-            './frontend/vendor/css/font-awesome.min.css'
+            './frontend/vendor/css/font-awesome.min.css',
+            './frontend/vendor/css/summernote.css'
           ]
         }
       }

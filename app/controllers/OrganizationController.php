@@ -30,4 +30,19 @@ class OrganizationController extends BaseController {
         return View::make('organization.admin')
             ->with('model', $organization);
     }
+
+    public function doEdit($id) {
+        $organization = Organization::findOrFail($id);
+
+        // Fill data with post info
+        $organization->name = Input::get('name');
+        $organization->website = Input::get('website');
+        $organization->email = Input::get('email');
+        $organization->description = Input::get('description');
+        $organization->save();
+
+        return Redirect::to("organization/$id/admin")
+            ->with('model', $organization)
+            ->with('message', 'Successfully updated.');
+    }
 }

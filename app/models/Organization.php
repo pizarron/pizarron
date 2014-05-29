@@ -1,5 +1,7 @@
 <?php
 class Organization extends Eloquent {
+    public $fillable = ['name', 'website', 'email', 'description'];
+
     public function courses() {
         return $this->hasMany('Course');
     }

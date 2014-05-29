@@ -40,6 +40,9 @@
                   </div>
                 </center>
                 <div class="form-group">
+                  {{Form::open(['url'=>"organization/$model->id/edit",
+                    'id'=>'basicInfoForm'
+                  ])}}
                   {{Form::hidden('id', $model->id, ['id'=>'organization-id'])}}
                   <b>{{Form::label('name', 'Organization Name:')}}</b>
                   {{Form::text('name', $model->name, [
@@ -59,6 +62,12 @@
                     'class'=>'form-control',
                     'autocomplete'=>'off'
                   ])}}
+                  <b>{{Form::label('description', 'Description:')}}</b>
+                  <textarea id="description" name="description" class="input-block-level"
+                    rows="18">{{$model->description}}</textarea>
+                  <br>
+                  {{Form::submit('Save changes', ['class'=>'btn btn-green'])}}
+                  {{Form::close()}}
                 </div>
               </div>
             </div>
