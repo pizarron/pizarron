@@ -1,41 +1,7 @@
 <?php
-// TODO: this file will need scale, separate routes in files,
-// or even use Route::resource
-
-Route::get('/', 'HomeController@index');
-
-Route::group(array('before'=>'guest'), function() {
-    Route::get('login', 'HomeController@login');
-    Route::post('login', 'HomeController@doLogin');
-
-    Route::get('register', 'HomeController@register');
-    Route::post('register', 'HomeController@doRegister');
-});
-
-Route::group(array('before'=>'auth'), function() {
-    Route::get('profile/edit', 'ProfileController@edit');
-    Route::get('profile/{id?}', 'ProfileController@index')->where('id', '[0-9]+');;
-    Route::get('profile/get', 'ProfileController@profileSearch');
-    Route::post('profile/edit', 'ProfileController@doEdit');
-    Route::post('profile/security/edit', 'ProfileController@doEditSecurity');
-    Route::post('profile/upload', 'ProfileController@uploadImage');
-
-    Route::get('organization/{id}/admin', [
-        'before'=>'organizationAdmin',
-        'uses'=>'OrganizationController@admin'
-    ]);
-    Route::post('organization/{id}/admin/upload', [
-        'before'=>'organizationAdmin',
-        'uses'=>'OrganizationController@uploadImage'
-    ]);
-    Route::post('organization/{id}/edit', [
-        'before'=>'organizationAdmin',
-        'uses'=>'OrganizationController@doEdit'
-    ]);
-    Route::get('organization/{id}', 'OrganizationController@index')->where('id', '[0-9]+');
-
-    Route::get('logout', 'HomeController@logout');
-});
+foreach(glob(app_path().'/routes/*.php') as $filename) {
+    include($filename);
+}
 
 /**
  * All view composers will be added here, as index and register
