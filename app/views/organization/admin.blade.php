@@ -81,7 +81,41 @@
                 </h5>
               </div>
               <div class="widget-body">
-                <input type="text" name="country" id="autocomplete" class="form-control"/>
+                <input type="hidden" id="admin-id" />
+                <div class="input-group">
+                  <input type="text" id="admin-ac" class="form-control"/>
+                  <span class="input-group-btn">
+                    <button class="btn btn-green" id="add-admin" title="Add admin">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </span>
+                </div>
+                <br>
+                <table class="table table-striped" id="admin-table">
+                  <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                    @foreach ($admins as $admin)
+                      <tr>
+                        <td>
+                          <a href="{{url("profile/$admin->id")}}">
+                            {{{$admin->name}}}
+                          </a>
+                        </td>
+                        <td>{{{$admin->email}}}</td>
+                        <td>
+                          <a class="remove" href="#" title="Remove"
+                            data-admin-id="{{$admin->id}}">
+                            <i class="fa fa-minus-square-o"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
               </div>
             </div>
             <div class="widget widget-green">

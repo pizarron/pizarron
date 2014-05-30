@@ -17,6 +17,10 @@ Route::group(array('before'=>'auth'), function() {
         'before'=>'organizationAdmin',
         'uses'=>'OrganizationController@addAdmin'
     ]);
+    Route::post('organization/{id}/remove-admin',[
+        'before'=>'organizationAdmin',
+        'uses'=>'OrganizationController@removeAdmin'
+    ]);
     Route::get('organization/{id}/admins', [
         'before'=>'organizationAdmin',
         'uses'=>'OrganizationController@searchAdmins'
