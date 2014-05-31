@@ -39,6 +39,18 @@ class CourseTables extends Migration {
 			$t->increments('id');
 			$t->integer('user_id')->unsigned();
 			$t->integer('organization_id')->unsigned();
+			$t->timestamps();
+		});
+		Schema::create('organization_teacher', function($t) {
+			$t->increments('id');
+			$t->integer('user_id')->unsigned();
+			$t->integer('organization_id')->unsigned();
+			$t->timestamps();
+		});
+		Schema::create('course_attendee', function($t) {
+			$t->increments('id');
+			$t->integer('user_id')->unsigned();
+			$t->integer('course_id')->unsigned();
 		});
 	}
 
