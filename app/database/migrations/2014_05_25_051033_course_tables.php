@@ -61,6 +61,8 @@ class CourseTables extends Migration {
 	 */
 	public function down()
 	{
+		Schema::drop('course_attendee');
+		Schema::drop('organization_teacher');
 		Schema::drop('organization_admin');
 		Schema::drop('courses');
 		Schema::drop('organizations');

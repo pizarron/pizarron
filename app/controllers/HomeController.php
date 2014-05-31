@@ -40,6 +40,7 @@ class HomeController extends BaseController {
         $user = new User(Input::all());
         $user->password = Hash::make(Input::get('password'));
         $user->picture_url = 'user.png';
+        $user->role = User::$ROLE_COMMON;
         $user->save();
 
         return Redirect::to('/')

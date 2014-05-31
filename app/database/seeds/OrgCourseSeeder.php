@@ -14,6 +14,7 @@ class OrgCourseSeeder extends Seeder {
         $user = User::find(4);
         // Create a relation in organization_admin between user 4 and organization 1
         $user->organizations()->attach(1);
+        $user->teachers()->attach(1);
         Course::create([
             'title'=>'Analisis matematico',
             'description'=>'calculus avansadus',

@@ -43,7 +43,9 @@
             <h5><i class="fa fa-user"></i>&nbsp;<b>Our Teachers</b></h5>
           </div>
           <div class="widget-body">
-            meh
+            @foreach ($teachers as $teacher)
+              {{$teacher->name}}<br>
+            @endforeach
           </div>
         </div>
         <div class="widget widget-green">

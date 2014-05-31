@@ -123,6 +123,41 @@
                 <h5><b><i class="fa fa-users"></i>&nbsp;Teachers</b></h5>
               </div>
               <div class="widget-body">
+                <input type="hidden" id="teacher-id" />
+                <div class="input-group">
+                  <input type="text" id="teacher-ac" class="form-control"/>
+                  <span class="input-group-btn">
+                    <button class="btn btn-green" id="add-teacher" title="Add teacher">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  </span>
+                </div>
+                <br>
+                <table class="table table-striped" id="teacher-table">
+                  <thead>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th></th>
+                  </thead>
+                  <tbody>
+                    @foreach ($teachers as $teacher)
+                      <tr>
+                        <td>
+                          <a href="{{url("profile/$teacher->id")}}">
+                            {{{$teacher->name}}}
+                          </a>
+                        </td>
+                        <td>{{{$teacher->email}}}</td>
+                        <td>
+                          <a class="remove" href="#" title="Remove"
+                            data-teacher-id="{{$teacher->id}}">
+                            <i class="fa fa-minus-square-o"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
               </div>
             </div>
             <div class="widget widget-green">
