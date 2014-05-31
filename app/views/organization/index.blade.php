@@ -31,6 +31,11 @@
         <div class="widget widget-green">
           <div class="widget-head">
             <h5><i class="fa fa-user"></i>&nbsp;<b>Our Courses</b></h5>
+            <div class="right">
+              <a href="#" title="New Course" class="btn btn-green">
+                <i class="fa fa-plus"></i>
+              </a>
+            </div>
           </div>
           <div class="widget-body">
             meh
@@ -43,9 +48,19 @@
             <h5><i class="fa fa-user"></i>&nbsp;<b>Our Teachers</b></h5>
           </div>
           <div class="widget-body">
-            @foreach ($teachers as $teacher)
-              {{$teacher->name}}<br>
-            @endforeach
+            <ul class="profile-list">
+              @foreach($teachers as $teacher)
+                <li>
+                  <a href="{{url("profile/$teacher->id")}}" class="profile-item">
+                    <img src="{{asset("uploads/avatars/$teacher->picture_url")}}" />
+                    <div class="details">
+                      <h3>{{{$teacher->name}}}</h3>
+                      <h5>{{{$teacher->email}}}</h5>
+                    </div>
+                  </a>
+                </li>
+              @endforeach
+            </ul>
           </div>
         </div>
         <div class="widget widget-green">

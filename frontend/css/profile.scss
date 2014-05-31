@@ -39,3 +39,43 @@
     margin-bottom: 10px;
   }
 }
+// Profile list, applied to ul elements
+.profile-list {
+  list-style: none;
+  padding: 0;
+
+  li {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 3px;
+
+    .profile-item {
+      width: 100%;
+      display: block;
+      position: relative;
+      margin-right: 0;
+      padding: 0;
+      margin:0;
+      overflow: auto;
+      border-bottom: 1px solid $light-gray;
+
+      img {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1px;
+        float: left;
+        @include border-radius(3px);
+      }
+      .details {
+        h3, h5 {
+          margin: 3px 0 0 56px;
+        }
+      }
+    }
+    .profile-item:hover {
+      text-decoration: none;
+    }
+  }
+}

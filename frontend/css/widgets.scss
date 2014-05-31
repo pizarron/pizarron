@@ -6,7 +6,13 @@
   margin: 30px auto;
   .widget-head {
     padding: 1px 7px;
+    position: relative;
     @include border-radius-separate(4px,4px,0,0);
+    .right {
+      position: absolute;
+      top: 2px;
+      right: 3px;
+    }
   }
   .widget-body {
     background-color: $white;
