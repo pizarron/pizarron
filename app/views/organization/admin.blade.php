@@ -18,6 +18,12 @@
               Administration Panel
             </a>
           </li>
+          <li>
+            <a href="{{url("organization/$model->id")}}">
+              <i class="fa fa-chevron-left"></i>&nbsp;
+              Return
+            </a>
+          </li>
         </ul>
       </div>
       <div class="col-md-8">

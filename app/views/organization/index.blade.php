@@ -31,11 +31,13 @@
         <div class="widget widget-green">
           <div class="widget-head">
             <h5><i class="fa fa-user"></i>&nbsp;<b>Our Courses</b></h5>
+            @if($isOrganizationAdmin)
             <div class="right">
               <a href="#" title="New Course" class="btn btn-green">
                 <i class="fa fa-plus"></i>
               </a>
             </div>
+            @endif
           </div>
           <div class="widget-body">
             meh

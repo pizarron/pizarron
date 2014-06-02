@@ -19,14 +19,36 @@
         <li><a href="{{ url('register') }}">Register</a></li>
       @else
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->email}} <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {{Auth::user()->email}} <b class="caret"></b>
+          </a>
           <ul class="dropdown-menu">
-            <li><a href="{{url('profile')}}">Profile</a></li>
+            <li>
+              <a href="{{url('profile')}}">
+                <i class="fa fa-user"></i>&nbsp;
+                Profile
+              </a>
+            </li>
             <li class="divider"></li>
-            <li><a href="{{url('course/create')}}">Create Course</a></li>
-            <li><a href="{{url('organization/create')}}">Create Organization</a></li>
+            <li>
+              <a href="{{url('course/create')}}">
+                <i class="fa fa-book"></i>&nbsp;
+                Create Course
+              </a>
+            </li>
+            <li>
+              <a href="{{url('organization/create')}}">
+                <i class="fa fa-users"></i>&nbsp;
+                Create Organization
+              </a>
+            </li>
             <li class="divider"></li>
-            <li><a href="{{url('logout')}}">Logout</a></li>
+            <li>
+              <a href="{{url('logout')}}">
+                <i class="fa fa-power-off"></i>&nbsp;
+                Logout
+              </a>
+            </li>
           </ul>
         </li>
       @endif
