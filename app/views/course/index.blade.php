@@ -10,16 +10,14 @@
         </div>
         <div class="col-md-8">
           <h1>{{$model->title}}</h1>
+          @if ($isTeacher)
+          <a href="{{url("course/$model->id/admin")}}" class="btn btn-green admin">
+            <i class="fa fa-cog"></i>
+          </a>
+          @endif
           <hr>
           <!-- DESCRIPTION -->
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit
-          in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p>
+          {{$model->description}}
         </div>
       </div>
     </div>
@@ -27,49 +25,38 @@
     <div class="row">
       <div class="col-md-8">
         <h2>About this course</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut
+        {{$model->about_course}}
 
-          <ul>
-            <li>foo</li>
-            <li>bar</li>
-            <li>meh</li>
-          </ul>
-           aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
         <h2>Syllabus</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        {{$model->syllabus}}
+
         <h2>Lectures</h2>
-        <p>
-          <ul>
-            <li>Lecture 1</li>
-            <li>Lecture 2</li>
-            <li>Lecture 3</li>
-          </ul>
-        </p>
+        {{$model->lectures}}
+
       </div>
       <div class="col-md-4">
         <div class="widget widget-green">
           <div class="widget-head">
             <h5><b>
               <i class="fa fa-clock-o"></i>&nbsp;
-              Live Classes
+              General
             </b></h5>
           </div>
           <div class="widget-body">
-            Tuesdays from 09pm to 10pm
+            <b>Teacher:</b>
+            <ul class="profile-list">
+              <li>
+                <a href="{{url("profile/$teacher->id")}}" class="profile-item">
+                  <img src="{{asset("uploads/avatars/$teacher->picture_url")}}" />
+                  <div class="details">
+                    <h3>{{{$teacher->name}}}</h3>
+                    <h5>{{{$teacher->email}}}</h5>
+                  </div>
+                </a>
+              </li>
+              <br>
+              <b>Live Classes:</b>
+            </ul>
           </div>
         </div>
         <div class="widget widget-green">

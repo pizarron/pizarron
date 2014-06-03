@@ -9,7 +9,14 @@
 
   .avatar {
     background-color: $white;
-    margin: 0 15px 0 15px;
+    border-bottom: 1px solid $light-gray;
+    position: relative;
+
+    .admin {
+      position: absolute;
+      top: 5px;
+      right: 20px;
+    }
     img {
       width: 250px;
       height: 250px;
@@ -21,6 +28,9 @@
   .body {
     .col-md-8:nth-child(1) {
       background-color: $white;
+      padding-bottom: 15px;
+      border: 1px solid $light-gray;
+      @include box-sizing();
     }
     .widget:nth-child(1) {
       margin-top: 0;
