@@ -66,6 +66,11 @@
             <h5><i class="fa fa-wechat"></i>&nbsp;<b>Teaching</b></h5>
           </div>
           <div class="widget-body">
+            @foreach($teaching as $course)
+              <a href="{{url("course/$course->id")}}">
+                <a href="{{url("course/$course->id")}}">{{{ $course->title }}}</a><br>
+              </a>
+            @endforeach
           </div>
         </div>
         <div class="widget widget-green">
@@ -74,7 +79,7 @@
           </div>
           <div class="widget-body">
             @foreach($organizations as $org)
-              <a href="{{url("organization/$org->id")}}">{{{ $org->name }}}</a>
+              <a href="{{url("organization/$org->id")}}">{{{ $org->name }}}</a><br>
             @endforeach
           </div>
         </div>

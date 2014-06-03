@@ -5,7 +5,8 @@ class ProfileController extends BaseController {
 
         return View::make('profile.index')
             ->with('model', $user)
-            ->with('organizations', $user->organizations()->get());
+            ->with('organizations', $user->organizations()->get())
+            ->with('teaching', $user->courses()->get());
     }
 
     public function edit() {
