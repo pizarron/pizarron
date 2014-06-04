@@ -43,6 +43,7 @@
                     <span>Upload Image</span>
                     <!-- The file input field used as target for the file upload widget -->
                     <input id="avatarUploader" type="file" name="picture_url">
+                    {{Form::hidden('id', $model->id, ['id'=>'organization-id'])}}
                   </div>
                 </center>
                 <br>
@@ -50,7 +51,6 @@
                   {{Form::open(['url'=>"organization/$model->id/edit",
                     'id'=>'basicInfoForm'
                   ])}}
-                  {{Form::hidden('id', $model->id, ['id'=>'organization-id'])}}
                   <b>{{Form::label('name', 'Organization Name:')}}</b>
                   {{Form::text('name', $model->name, [
                     'placeholder'=>'Organization Name',

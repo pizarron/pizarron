@@ -17,7 +17,7 @@
           @endif
           <hr>
           <!-- DESCRIPTION -->
-          {{$model->description}}
+          {{{$model->description}}}
         </div>
       </div>
     </div>

@@ -87,3 +87,10 @@ Route::filter('organizationAdmin', function() {
         App::abort(404);
     }
 });
+
+Route::filter('courseTeacher', function() {
+    $course = Course::findOrFail(Route::input('id'));
+    if (Auth::user()->id != $course->user_id) {
+        App::abort(404);
+    }
+});
